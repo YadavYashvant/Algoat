@@ -19,3 +19,8 @@ Visualise time complexities of different algorithms.
   - Open project in android studio
 ```
     
+## Tech Stack
+
+- Kotlin
+- Jetpack Compose
+- Material3
