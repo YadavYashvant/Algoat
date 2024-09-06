@@ -48,8 +48,7 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
     var input by remember { mutableStateOf("5,4,6,1,3,7,9,2,8")}
     var times by remember { mutableStateOf<Map<String, Long>>(emptyMap()) }
 
-    LazyColumn(modifier = Modifier.padding(innerPadding).padding(horizontal = 8.dp)) {
-        item {
+    Column(modifier = Modifier.padding(innerPadding).padding(horizontal = 8.dp)) {
             TextField(
                 maxLines = 5,
                 value = input,
@@ -62,8 +61,6 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
                     focusedIndicatorColor = Color.Transparent
                 ),
             )
-        }
-        item {
             Row (
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
@@ -98,17 +95,13 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
                 }
             }
         }
-        item {
             Spacer(modifier = Modifier.height(8.dp))
             HorizontalDivider(modifier = Modifier.padding(horizontal = 4.dp))
             Spacer(modifier = Modifier.height(8.dp))
-        }
-        item {
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
-                modifier = Modifier.height(800.dp)
             ) {
                 items(algorithms) { algorithm ->
                     Card(
@@ -126,6 +119,5 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
                     }
                 }
             }
-        }
-    }
+
 }
