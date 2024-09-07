@@ -12,7 +12,7 @@ import com.example.algoat.algorithms.insertionSort
 import com.example.algoat.algorithms.mergeSort
 import com.example.algoat.algorithms.selectionSort
 import com.example.algoat.data.SortingAlgorithm
-import com.example.algoat.ui.BottomNavigation
+import com.example.algoat.ui.components.BottomNavigation
 
 @Composable
 fun MainContent(modifier: Modifier = Modifier) {
