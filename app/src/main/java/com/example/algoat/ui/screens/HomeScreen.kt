@@ -39,6 +39,10 @@ import com.example.algoat.algorithms.countingSort
 import com.example.algoat.algorithms.insertionSort
 import com.example.algoat.algorithms.mergeSort
 import com.example.algoat.algorithms.selectionSort
+import com.example.algoat.data.ChartTime
+import com.himanshoe.charty.bar.BarChart
+import com.himanshoe.charty.common.ChartData
+import com.himanshoe.charty.common.ChartDataCollection
 import kotlin.random.Random
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
@@ -119,5 +123,24 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
                     }
                 }
             }
+
+    val dataCollection = ChartDataCollection(
+        listOf(
+            ChartTime(xValue = 2, yValue = times["Bubble Sort"]?.toFloat() ?: 0f, chartString = "Bubble Sort"),
+            ChartTime(xValue = 2, yValue = times["Insertion Sort"]?.toFloat() ?: 0f, chartString = "Insertion Sort"),
+            ChartTime(xValue = 2, yValue = times["Selection Sort"]?.toFloat() ?: 0f, chartString = "Selection Sort"),
+            ChartTime(xValue = 2, yValue = times["Merge Sort"]?.toFloat() ?: 0f, chartString = "Merge Sort"),
+            ChartTime(xValue = 2, yValue = times["Counting Sort"]?.toFloat() ?: 0f, chartString = "Counting Sort"),
+        )
+
+
+    )
+
+    BarChart(
+        dataCollection = dataCollection,
+        barSpacing = 8.dp,
+        modifier = Modifier.fillMaxWidth(),
+        padding = 16.dp,
+    )
 
 }
