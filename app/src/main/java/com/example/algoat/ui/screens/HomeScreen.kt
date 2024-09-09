@@ -131,9 +131,7 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
             ChartTime(xValue = 2, yValue = times["Selection Sort"]?.toFloat() ?: 0f, chartString = "Selection Sort"),
             ChartTime(xValue = 2, yValue = times["Merge Sort"]?.toFloat() ?: 0f, chartString = "Merge Sort"),
             ChartTime(xValue = 2, yValue = times["Counting Sort"]?.toFloat() ?: 0f, chartString = "Counting Sort"),
-        )
-
-
+            )
     )
 
     BarChart(
@@ -141,6 +139,7 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
         barSpacing = 8.dp,
         modifier = Modifier.fillMaxWidth(),
         padding = 16.dp,
+        axisConfig = ChartDefaults.axisConfigDefaults(),
     )
 
 }
