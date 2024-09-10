@@ -20,14 +20,7 @@ data class BottomNavigationItem(
     val title: String,
     val selectedIcon: Painter,
     val unselectedIcon: Painter,
-    val hasNews: Boolean,
-    val badgeCount: Int? = null
 )
-
-/*val spacefamily = FontFamily(
-    Font(R.font.spacebold*//*, FontWeight.Bold*//*),
-    Font(R.font.spaceregular*//*, FontWeight.Light*//*),
-)*/
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,27 +31,17 @@ fun BottomNavigation(
         BottomNavigationItem(
             title = "Home",
             selectedIcon = painterResource(id = R.drawable.baseline_home_24),
-            unselectedIcon = painterResource(id = R.drawable.outline_home_24),
-            hasNews = false,
+            unselectedIcon = painterResource(id = R.drawable.outline_home_24)
         ),
         BottomNavigationItem(
             title = "Plot",
             selectedIcon = painterResource(id = R.drawable.baseline_auto_graph_24),
-            unselectedIcon = painterResource(id = R.drawable.outline_auto_graph_24),
-            hasNews = false,
-            /*badgeCount = 0*/
+            unselectedIcon = painterResource(id = R.drawable.outline_auto_graph_24)
         ),
-        /*BottomNavigationItem(
-            title = "Bookmarks",
-            selectedIcon = painterResource(id = R.drawable.bookmark_filled),
-            unselectedIcon = painterResource(id = R.drawable.bookmark_outlined),
-            hasNews = true,
-        ),*/
         BottomNavigationItem(
             title = "LeaderBoard",
             selectedIcon = painterResource(id = R.drawable.baseline_leaderboard_24),
-            unselectedIcon = painterResource(id = R.drawable.outline_leaderboard_24),
-            hasNews = false,
+            unselectedIcon = painterResource(id = R.drawable.outline_leaderboard_24)
         )
     )
     var selectedItemIndex by rememberSaveable {
@@ -72,7 +55,6 @@ fun BottomNavigation(
                 onClick = {
                     selectedItemIndex = index
                     navController.navigate(item.title)
-                    // navController.navigate(item.title)
                 },
                 label = {
                     Text(text = item.title)
