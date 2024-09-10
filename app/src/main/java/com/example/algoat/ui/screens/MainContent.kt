@@ -11,8 +11,10 @@ import com.example.algoat.algorithms.countingSort
 import com.example.algoat.algorithms.insertionSort
 import com.example.algoat.algorithms.mergeSort
 import com.example.algoat.algorithms.selectionSort
+import com.example.algoat.data.ChartTime
 import com.example.algoat.data.SortingAlgorithm
 import com.example.algoat.ui.components.BottomNavigation
+import com.himanshoe.charty.common.ChartDataCollection
 
 @Composable
 fun MainContent(modifier: Modifier = Modifier) {
@@ -25,6 +27,24 @@ fun MainContent(modifier: Modifier = Modifier) {
         SortingAlgorithm("Counting Sort", "CountingSort")
     )
 
+    val times = mutableMapOf(
+        "Bubble Sort" to 2L,
+        "Insertion Sort" to 1L,
+        "Selection Sort" to 3L,
+        "Merge Sort" to 4L,
+        "Counting Sort" to 3L
+    )
+
+    val dataCollection = ChartDataCollection(
+        listOf(
+            ChartTime(xValue = 2, yValue = times["Bubble Sort"]?.toFloat() ?: 0f, chartString = "Bubble Sort"),
+            ChartTime(xValue = 2, yValue = times["Insertion Sort"]?.toFloat() ?: 0f, chartString = "Insertion Sort"),
+            ChartTime(xValue = 2, yValue = times["Selection Sort"]?.toFloat() ?: 0f, chartString = "Selection Sort"),
+            ChartTime(xValue = 2, yValue = times["Merge Sort"]?.toFloat() ?: 0f, chartString = "Merge Sort"),
+            ChartTime(xValue = 2, yValue = times["Counting Sort"]?.toFloat() ?: 0f, chartString = "Counting Sort"),
+        )
+    )
+
     Scaffold(
         modifier = modifier,
         bottomBar = { BottomNavigation(navController) }
@@ -34,7 +54,7 @@ fun MainContent(modifier: Modifier = Modifier) {
                 HomeScreen(innerPadding, navController, algorithms)
             }
             composable("Plot") {
-                PlotScreen(innerPadding)
+                    PlotScreen(innerPadding, dataCollection)
             }
             composable("Leaderboard") {
                 LeaderboardScreen(innerPadding)

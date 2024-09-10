@@ -39,10 +39,6 @@ import com.example.algoat.algorithms.countingSort
 import com.example.algoat.algorithms.insertionSort
 import com.example.algoat.algorithms.mergeSort
 import com.example.algoat.algorithms.selectionSort
-import com.example.algoat.data.ChartTime
-import com.himanshoe.charty.bar.BarChart
-import com.himanshoe.charty.common.ChartData
-import com.himanshoe.charty.common.ChartDataCollection
 import kotlin.random.Random
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
@@ -52,7 +48,8 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
     var input by remember { mutableStateOf("5,4,6,1,3,7,9,2,8")}
     var times by remember { mutableStateOf<Map<String, Long>>(emptyMap()) }
 
-    Column(modifier = Modifier.padding(innerPadding).padding(horizontal = 8.dp)) {
+    LazyColumn(modifier = Modifier.padding(innerPadding).padding(horizontal = 8.dp)) {
+        item {
             TextField(
                 maxLines = 5,
                 value = input,
@@ -65,6 +62,8 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
                     focusedIndicatorColor = Color.Transparent
                 ),
             )
+        }
+        item {
             Row (
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
@@ -99,10 +98,14 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
                 }
             }
         }
+        item {
             Spacer(modifier = Modifier.height(8.dp))
             HorizontalDivider(modifier = Modifier.padding(horizontal = 4.dp))
             Spacer(modifier = Modifier.height(8.dp))
+        }
+        item {
             LazyVerticalGrid(
+                modifier = Modifier.height(600.dp),
                 columns = GridCells.Fixed(2),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -123,23 +126,6 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController, algori
                     }
                 }
             }
-
-    val dataCollection = ChartDataCollection(
-        listOf(
-            ChartTime(xValue = 2, yValue = times["Bubble Sort"]?.toFloat() ?: 0f, chartString = "Bubble Sort"),
-            ChartTime(xValue = 2, yValue = times["Insertion Sort"]?.toFloat() ?: 0f, chartString = "Insertion Sort"),
-            ChartTime(xValue = 2, yValue = times["Selection Sort"]?.toFloat() ?: 0f, chartString = "Selection Sort"),
-            ChartTime(xValue = 2, yValue = times["Merge Sort"]?.toFloat() ?: 0f, chartString = "Merge Sort"),
-            ChartTime(xValue = 2, yValue = times["Counting Sort"]?.toFloat() ?: 0f, chartString = "Counting Sort"),
-            )
-    )
-
-    BarChart(
-        dataCollection = dataCollection,
-        barSpacing = 8.dp,
-        modifier = Modifier.fillMaxWidth(),
-        padding = 16.dp,
-        axisConfig = ChartDefaults.axisConfigDefaults(),
-    )
-
+        }
+    }
 }
