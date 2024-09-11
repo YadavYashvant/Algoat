@@ -16,19 +16,30 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Button
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.example.algoat.utils.getTextFromClipboard
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddAlgorithm() {
-
     var input by remember { mutableStateOf("  ") }
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier
             .padding(4.dp)
             .fillMaxSize()
     ) {
+        Row(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+            Button(onClick = {
+                input = getTextFromClipboard(context)
+            }) {
+                Text("Paste from Clipboard")
+            }
+        }
         TextField(
             minLines = 50,
             textStyle = MaterialTheme.typography.bodySmall,
