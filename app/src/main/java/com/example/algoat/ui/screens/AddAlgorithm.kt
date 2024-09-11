@@ -26,18 +26,18 @@ fun AddAlgorithm() {
 
     Column(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(4.dp)
             .fillMaxSize()
     ) {
         TextField(
-            maxLines = 5,
-            placeholder = { Text("Please paste your algorithm here \uD83D\uDC49") },
+            minLines = 50,
+            textStyle = MaterialTheme.typography.bodySmall,
+            label = { Text("Please paste your algorithm here \uD83D\uDC49") },
             value = input,
             onValueChange = { input = it },
-            label = { Text("Input Array (comma separated)") },
             modifier = Modifier.fillMaxWidth().padding(16.dp),
             shape = MaterialTheme.shapes.medium,
-            colors = TextFieldDefaults.textFieldColors(
+            colors = TextFieldDefaults.colors(
                 unfocusedIndicatorColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent
             ),

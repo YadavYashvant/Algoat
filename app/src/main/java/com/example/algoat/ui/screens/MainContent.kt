@@ -56,7 +56,7 @@ fun MainContent(modifier: Modifier = Modifier) {
         bottomBar = { BottomNavigation(navController) },
         floatingActionButton = {
             ExtendedFloatingActionButton(
-                onClick = { navController.navigate("Home") },
+                onClick = { navController.navigate("AddAlgorithm") },
                 content = {
                     Icon(imageVector = Icons.Default.Add, contentDescription = "Add Algorithm")
                     Text("Add Algorithm")
@@ -70,6 +70,9 @@ fun MainContent(modifier: Modifier = Modifier) {
             }
             composable("Plot") {
                     PlotScreen(innerPadding, dataCollection)
+            }
+            composable("AddAlgorithm") {
+                AddAlgorithm()
             }
             composable("Leaderboard") {
                 LeaderboardScreen(innerPadding)
