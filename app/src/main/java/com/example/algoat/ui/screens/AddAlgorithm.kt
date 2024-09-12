@@ -40,7 +40,9 @@ fun AddAlgorithm() {
         Row(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
             Button(onClick = {
                 input = getTextFromClipboard(context)
-            }) {
+            },
+            modifier = Modifier.fillMaxWidth().padding(16.dp)
+            ) {
                 Text("Paste from Clipboard")
             }
         }
