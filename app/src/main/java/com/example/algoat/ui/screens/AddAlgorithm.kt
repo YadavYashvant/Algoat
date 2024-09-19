@@ -37,18 +37,17 @@ fun AddAlgorithm() {
             .padding(4.dp)
             .fillMaxSize()
     ) {
-        Row(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
-            Button(onClick = {
-                input = getTextFromClipboard(context)
-            },
+        Button(onClick = {
+            input = getTextFromClipboard(context)
+        },
             modifier = Modifier.fillMaxWidth().padding(16.dp)
-            ) {
-                Text("Paste from Clipboard")
-            }
+        ) {
+            Text("Paste from Clipboard \uD83D\uDCCB")
         }
+
         TextField(
-            minLines = 50,
-            textStyle = MaterialTheme.typography.bodySmall,
+            minLines = 30,
+            textStyle = MaterialTheme.typography.bodyMedium,
             label = { Text("Please paste your algorithm here \uD83D\uDC49") },
             value = input,
             onValueChange = { input = it },
