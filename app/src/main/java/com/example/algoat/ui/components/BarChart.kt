@@ -14,5 +14,5 @@ fun BarChart(
     padding: Dp = 16.dp,
     axisConfig: AxisConfig = ChartDefaults.axisConfigDefaults(),
 ) {
-    // Implementation details...
+
 }
