@@ -58,5 +58,13 @@ fun AddAlgorithm() {
                 focusedIndicatorColor = Color.Transparent
             ),
         )
+
+        Button(onClick = {
+            // Add the algorithm to the database
+        },
+            modifier = Modifier.fillMaxWidth().padding(16.dp)
+        ) {
+            Text("Add Algorithm")
+        }
     }
 }
